@@ -9,39 +9,45 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-5 mt-3 mt-md-0">
                 <div class="tm-bg-white tm-p-4">
-                    <form action="Index" method="post" class="register-form">
+                    <form action="Registration" method="post" class="register-form">
                         <div class="form-group">
-                            <input type="text" id="register_name" name="register_name" class="form-control" placeholder="First Name" required />
+                            <input type="text" id="register_name" name="FirstName" class="form-control" placeholder="First Name" required />
                         </div>
 
                         <div class="form-group">
-                            <input type="text" id="register_name" name="register_name" class="form-control" placeholder="Last Name" required />
+                            <input type="text" id="register_name" name="LastName" class="form-control" placeholder="Last Name" required />
                         </div>
 
                         <div class="form-group">
-                            <input type="email" id="register_email" name="register_email" class="form-control" placeholder="Email" required />
+                            <input type="text" id="register_subject" name="CourseName" class="form-control" placeholder="Course Name" required />
                         </div>
 
                         <div class="form-group">
-                            <input type="text" id="register_subject" name="register_subject" class="form-control" placeholder="Course Name" required />
+                            <input type="text" id="register_year" name="CourseYear" class="form-control" placeholder="Year" required />
                         </div>
 
                         <div class="form-group">
-                            <input type="text" id="register_year" name="register_year" class="form-control" placeholder="Year" required />
+                            <input type="text" id="register_phone" name="Phone" class="form-control" placeholder="Phone Number" required />
                         </div>
 
                         <div class="form-group">
-                            <input type="text" id="register_phone" name="register_phone" class="form-control" placeholder="Phone Number" required />
+                            <input type="text" id="register_address" name="Address" class="form-control" placeholder="Address" required />
                         </div>
 
                         <div class="form-group">
-                            <input type="text" id="register_address" name="register_address" class="form-control" placeholder="Address" required />
+                            <input type="text" id="register_city" name="City" class="form-control" placeholder="City" required />
                         </div>
 
                         <div class="form-group">
-                            <input type="text" id="register_city" name="register_city" class="form-control" placeholder="City" required />
+                            <input type="email" id="register_email" name="Email" class="form-control" placeholder="Email" required />
                         </div>
-                        <button type="submit" class="btn btn-primary tm-btn-primary" value="Index">Register</button>
+
+                        <div class="form-group">
+                            <input type="password" id="register_password" name="Password" class="form-control" placeholder="Password" required />
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary tm-btn-primary" value="Registration">Register</button>
                     </form>
                 </div>
             </div>

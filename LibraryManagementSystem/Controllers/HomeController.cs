@@ -20,6 +20,30 @@ namespace LibraryManagementSystem.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult ForLogin(string email,string password)
+        {
+
+            BookAppDbContext dbContext = new BookAppDbContext();
+            string Email = email;
+
+            string Password = password;
+            var userlist = dbContext.Books.ToList();
+            var user = userlist.Where(X => X.Email == email && X.Password == password).FirstOrDefault();
+
+            if (user != null)
+            {
+
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+
+           
+        }
+
 
         public IActionResult Register(Book Book)
         {
@@ -29,9 +53,28 @@ namespace LibraryManagementSystem.Controllers
         [HttpPost]
         public IActionResult Registration(Book Book)
         {
+            BookAppDbContext dbContext = new BookAppDbContext();
+            Book obj = new Book();
+            obj.FirstName = Book.FirstName;
+            obj.LastName = Book.LastName;
+            obj.CourseName = Book.CourseName;
+            obj.CourseYear = Book.CourseYear;
+            obj.Phone = Book.Phone;
+            obj.Address = Book.Address;
+            obj.City = Book.City;
+            obj.Email = Book.Email;
+
             ShareMail mail = new ShareMail();
-            mail.SendEmail(Book.Email);
+           string pass= mail.SendEmail(Book.Email);
+            obj.Password = pass;
+
+
+            dbContext.Add(obj);
+            dbContext.SaveChanges();
+
+           
             return View();
+
         }
 
         

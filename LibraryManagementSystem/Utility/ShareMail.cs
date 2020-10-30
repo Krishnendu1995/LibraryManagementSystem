@@ -12,12 +12,12 @@ namespace LibraryManagementSystem.Utility
 {
     public class ShareMail
     {
-        public void SendEmail(string toAddress)
+        public string SendEmail(string toAddress)
         {
 
 
             Random rn = new Random();
-            int no = rn.Next(1000, 2000);
+            string no = rn.Next(100000).ToString();
             MailMessage mail = new MailMessage();
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
             SmtpServer.UseDefaultCredentials = true;
@@ -25,7 +25,10 @@ namespace LibraryManagementSystem.Utility
 
             mail.To.Add(toAddress);//  To
             mail.Subject = "Registration Completed";
-            mail.Body = "Thanks for Registering!!";
+            mail.Body = "Thanks for Registering!! \n Your Password is:"+no;
+
+           
+
 
             //mail.Attachments.Add(new Attachment(@attach));
             //System.Net.Mail.Attachment attachment;
@@ -38,6 +41,8 @@ namespace LibraryManagementSystem.Utility
             SmtpServer.EnableSsl = true;
 
             SmtpServer.Send(mail);
+
+            return no;
 
         }
     }

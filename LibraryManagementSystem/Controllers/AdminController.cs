@@ -40,6 +40,16 @@ namespace LibraryManagementSystem.Controllers
             }
 
             return View();
+    
+        }
+        public IActionResult BookDetails()
+        {
+
+            BookAppDbContext dbContext = new BookAppDbContext();
+            var BookList = dbContext.AddBooks.ToList();
+            return View(BookList);
+            
         }
     }
+
 }

@@ -15,6 +15,6 @@ namespace LibraryManagementSystem.Models
 
         public string BookName { get; set; }
 
-        public string BookAuthor { get; set; }
+        public string AuthorName { get; set; }
     }
 }

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<LibraryManagementSystem.Models.Book>
+@{
+    ViewData["Title"] = "UserDetails";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<h1>UserDetails</h1>
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">CourseName</th>
+            <th scope="col">CourseYear</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Address</th>
+            <th scope="col">City</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+
+        <tr>
+
+            <td>@item.Id</td>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.CourseName</td>
+            <td>@item.CourseYear</td>
+            <td>@item.Phone</td>
+            <td>@item.Address</td>
+            <td>@item.City</td>
+            <td>@item.Email</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+

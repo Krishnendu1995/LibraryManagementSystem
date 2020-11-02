@@ -11,6 +11,8 @@ namespace LibraryManagementSystem.Models
     {
 
         public DbSet<Book> Books{ get; set; }
+
+        public DbSet<AddBook> AddBooks { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=Library;Trusted_Connection=True;");

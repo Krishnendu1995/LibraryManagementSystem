@@ -89,5 +89,12 @@ namespace LibraryManagementSystem.Controllers
             return View();
         }
 
+        public IActionResult SelectBook()
+        {
+            BookAppDbContext dbContext = new BookAppDbContext();
+            var SelectedList = dbContext.AddBooks.ToList();
+            return View(SelectedList);
+        }
+
     }
 }

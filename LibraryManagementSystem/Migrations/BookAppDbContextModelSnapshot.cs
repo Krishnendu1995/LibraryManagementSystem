@@ -34,9 +34,33 @@ namespace LibraryManagementSystem.Migrations
                     b.Property<int>("BookNo")
                         .HasColumnType("int");
 
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("AddBooks");
+                });
+
+            modelBuilder.Entity("LibraryManagementSystem.Models.AdminLogin", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AdminLogins");
                 });
 
             modelBuilder.Entity("LibraryManagementSystem.Models.Book", b =>

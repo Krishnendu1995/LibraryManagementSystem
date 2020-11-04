@@ -14,6 +14,33 @@ namespace LibraryManagementSystem.Controllers
             return View();
         }
 
+        public IActionResult Indexx()
+        {
+            return View();
+        }
+        public IActionResult Login()
+
+        {
+
+            return View();
+        }
+
+        public IActionResult Forlogin(AdminLogin adminLogin)
+
+        {
+            using (BookAppDbContext dbContext = new BookAppDbContext())
+            {
+                dbContext.AdminLogins.Add(adminLogin);
+                dbContext.SaveChanges();
+
+            }
+
+            return View();
+          
+        }
+
+
+
         public IActionResult UserDetails()
         {
             BookAppDbContext dbContext = new BookAppDbContext();

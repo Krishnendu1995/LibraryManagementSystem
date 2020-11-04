@@ -14,7 +14,9 @@
             <th scope="col">BookNo</th>
             <th scope="col">BookName</th>
             <th scope="col">AuthorName </th>
-                    </tr>
+            <th scope="col">Price </th>
+            <th scope="col">Status </th>
+        </tr>
     </thead>
 
     <tbody>
@@ -22,15 +24,17 @@
         {
 
 
-            <tr>
+        <tr>
 
-                <td>@item.Id</td>
-                <td>@item.BookNo</td>
-                <td>@item.BookName</td>
-                <td>@item.AuthorName</td>
-               
-               
-            </tr>
+            <td>@item.Id</td>
+            <td>@item.BookNo</td>
+            <td>@item.BookName</td>
+            <td>@item.AuthorName</td>
+            <td>@item.Price</td>
+            <td>@item.Status</td>
+
+
+        </tr>
         }
     </tbody>
 </table>

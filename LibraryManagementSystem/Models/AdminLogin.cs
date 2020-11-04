@@ -6,19 +6,11 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem.Models
 {
-    public class AddBook
+    public class AdminLogin
     {
         [Key]
         public int Id { get; set; }
-
-        public int BookNo { get; set; }
-
-        public string BookName { get; set; }
-
-        public string AuthorName { get; set; }
-
-        public int Price { get; set; }
-        public string Status { get; set; }
-
+        public string Email { get; set; }
+        public string Password { get; set; }
     }
 }

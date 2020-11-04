@@ -1,11 +1,10 @@
 ﻿@model IEnumerable<LibraryManagementSystem.Models.AddBook>
 @{
-    ViewData["Title"] = "BookDetails";
+    ViewData["Title"] = "SelectedBooks";
     Layout = "~/Views/Shared/AdminLayout.cshtml";
 }
 
-<h1>BookDetails</h1>
-
+<h1>SelectedBooks</h1>
 
 <table class="table">
     <thead class="thead-dark">
@@ -24,17 +23,17 @@
         {
 
 
-        <tr>
+            <tr>
 
-            @*@<td>@item.Id</td>*@
-            <td>@item.BookNo</td>
-            <td>@item.BookName</td>
-            <td>@item.AuthorName</td>
-            <td>@item.Price</td>
-            <td>@item.Status</td>
+                @*<td>@item.Id</td>*@
+                <td>@item.BookNo</td>
+                <td>@item.BookName</td>
+                <td>@item.AuthorName</td>
+                <td>@item.Price</td>
+                <td>@item.Status</td>
 
 
-        </tr>
+            </tr>
         }
     </tbody>
 </table>

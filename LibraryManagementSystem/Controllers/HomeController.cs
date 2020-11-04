@@ -92,8 +92,14 @@ namespace LibraryManagementSystem.Controllers
         public IActionResult SelectBook()
         {
             BookAppDbContext dbContext = new BookAppDbContext();
-            var SelectedList = dbContext.AddBooks.ToList();
+            var SelectedList = dbContext.AddBooks.ToList().Where(x => x.SelectedStatus == "0");
             return View(SelectedList);
+        }
+        public IActionResult UpdateStatus(AddBook addBook)
+        {
+            BookAppDbContext dbContext = new BookAppDbContext();
+
+            return View();
         }
 
     }

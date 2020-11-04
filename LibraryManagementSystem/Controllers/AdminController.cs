@@ -62,6 +62,8 @@ namespace LibraryManagementSystem.Controllers
             using (BookAppDbContext dbContext = new BookAppDbContext())
             {
                 dbContext.AddBooks.Add(addbook);
+                //dbContext.AddBooks.Add(addbook.SelectedStatus=="0").;
+                /// dbContext.addbook.SelectedStatus == "0";
                 dbContext.SaveChanges();
 
             }
@@ -76,6 +78,17 @@ namespace LibraryManagementSystem.Controllers
             var BookList = dbContext.AddBooks.ToList();
             return View(BookList);
             
+        }
+
+        public IActionResult SelectedBooks()
+        {
+
+            BookAppDbContext dbContext = new BookAppDbContext();
+
+            var SelectedList = dbContext.AddBooks.ToList().Where(x => x.SelectedStatus == "1");
+
+            return View(SelectedList);
+
         }
     }
 

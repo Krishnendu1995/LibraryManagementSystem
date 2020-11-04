@@ -20,5 +20,7 @@ namespace LibraryManagementSystem.Models
         public int Price { get; set; }
         public string Status { get; set; }
 
+        public string SelectedStatus { get; set; }
+
     }
 }

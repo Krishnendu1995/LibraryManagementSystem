@@ -4,12 +4,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>SelectBook</h1>
-<form action="UpdateStatus" method="get">
+@*<h1>SelectBook</h1>*@
+<nav class="navbar navbar-light bg-light">
+    <form class="form-inline" asp-controller="Home" asp-action="Search" method="get">
+        <input align="Center" class="form-control mr-sm-2" type="search" placeholder="Search" name="searchString" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</nav>
+@*<form action="UpdateStatus" method="get">
     <table class="table">
         <thead class="thead-dark">
             <tr>
-                @*<th scope="col">Id</th>*@
+                <th scope="col">Id</th>
                 <th scope="col">BookNo</th>
                 <th scope="col">BookName</th>
                 <th scope="col">AuthorName </th>
@@ -26,7 +32,7 @@
 
                 <tr>
 
-                    @*<td>@item.Id</td>*@
+                    <td>@item.Id</td>
                     <td>@item.BookNo</td>
                     <td>@item.BookName</td>
                     <td>@item.AuthorName</td>
@@ -39,7 +45,8 @@
 
                 </tr>
             }
+            
         </tbody>
     </table>
-</form>
+</form>*@
 

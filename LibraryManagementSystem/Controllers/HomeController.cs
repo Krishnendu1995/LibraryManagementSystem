@@ -15,7 +15,11 @@ namespace LibraryManagementSystem.Controllers
             return View();
         }
 
-        
+        public IActionResult Indexx()
+        {
+            return View();
+        }
+
         public IActionResult Login()
         {
             return View();
@@ -89,15 +93,53 @@ namespace LibraryManagementSystem.Controllers
             return View();
         }
 
-        public IActionResult SelectBook()
+        public IActionResult SelectBook(String searchString)
+        
         {
             BookAppDbContext dbContext = new BookAppDbContext();
-            var SelectedList = dbContext.AddBooks.ToList().Where(x => x.SelectedStatus == "0");
-            return View(SelectedList);
+            //int BookNo = bookno;
+            //string BookName = bookname;
+            //string AuthorName = authorname;
+            //int Price = price;
+            //string Status = status;
+            //var SelectedList = dbContext.AddBooks.ToList().Where(x => x.SelectedStatus == "0");
+            var bookList = dbContext.AddBooks.ToList();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+
+                var filterList = bookList.Where(x => x.BookName.ToLower().Contains(searchString.ToLower())).ToList();
+                return View(filterList);
+            }
+            else
+            {
+                return View(bookList);
+            }
+
+            //var user = SelectedList.Where(X => X.Email == email && X.Password == password).FirstOrDefault();
+
+            
+        }
+
+        public IActionResult Search(String searchString)
+        {
+            BookAppDbContext dbContext = new BookAppDbContext();
+            var bookList = dbContext.AddBooks.ToList();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+
+                var filterList = bookList.Where(x => x.BookName.ToLower().Contains(searchString.ToLower())).ToList();
+                return View(filterList);
+            }
+            else
+            {
+                return View(bookList);
+            }
+
         }
         public IActionResult UpdateStatus(AddBook addBook)
         {
             BookAppDbContext dbContext = new BookAppDbContext();
+            
 
             return View();
         }

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<LibraryManagementSystem.Models.AddBook>
+@{
+    ViewData["Title"] = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form asp-controller="Home" asp-action="UpdateStatus" method="get">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                @*<th scope="col">Id</th>*@
+                <th scope="col">BookNo</th>
+                <th scope="col">BookName</th>
+                <th scope="col">AuthorName </th>
+                <th scope="col">Price </th>
+                <th scope="col">Status </th>
+                <th>            </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+
+                <tr>
+
+                    @*<td>@item.Id</td>*@
+                    <td>@item.BookNo</td>
+                    <td>@item.BookName</td>
+                    <td>@item.AuthorName</td>
+                    <td>@item.Price</td>
+                    <td>@item.Status</td>
+
+
+                    <td><input type="submit" value="Select" a /></td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
+

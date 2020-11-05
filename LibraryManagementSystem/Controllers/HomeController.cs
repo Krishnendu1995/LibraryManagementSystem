@@ -144,5 +144,24 @@ namespace LibraryManagementSystem.Controllers
             return View();
         }
 
+        public IActionResult Feedback()
+        {
+            return View();
+        }
+
+        
+        public IActionResult AddFeedback(Feedback feedback)
+        {
+            using (BookAppDbContext dbContext = new BookAppDbContext())
+            {
+                dbContext.Feedbacks.Add(feedback);
+                dbContext.SaveChanges();
+
+            }
+
+            return View();
+
+        }
+
     }
 }

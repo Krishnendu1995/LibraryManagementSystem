@@ -14,16 +14,40 @@ namespace LibraryManagementSystem.Controllers
             return View();
         }
 
-        public IActionResult Indexx()
-        {
-            return View();
-        }
-        public IActionResult Login()
+        //public IActionResult Indexx()
+        //{
+        //    return View();
+        //}
+        public IActionResult AdminHome(string email, string password)
 
         {
+            BookAppDbContext dbContext = new BookAppDbContext();
+            
+            string Email = email;
+            string Password = password;
+            var loginlist = dbContext.AdminLogins.ToList();
+            var user = loginlist.Where(X => X.Email == email && X.Password == password).FirstOrDefault();
 
-            return View();
+            if (user != null)
+            {
+
+                //    return View();//
+                return RedirectToAction("Invalid");
+            }
+            else
+            {
+                return View();
+            }
+
+
+            
         }
+        //public IActionResult Login()
+
+        //{
+
+        //    return View();
+        //}
 
         public IActionResult Forlogin(AdminLogin adminLogin)
 

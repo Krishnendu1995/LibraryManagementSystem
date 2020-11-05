@@ -14,10 +14,7 @@ namespace LibraryManagementSystem.Controllers
             return View();
         }
 
-        //public IActionResult Indexx()
-        //{
-        //    return View();
-        //}
+       
         public IActionResult AdminHome(string email, string password)
 
         {
@@ -31,37 +28,32 @@ namespace LibraryManagementSystem.Controllers
             if (user != null)
             {
 
-                //    return View();//
-                return RedirectToAction("Invalid");
+                return View();
+
             }
             else
             {
-                return View();
+                
+                return RedirectToAction("Invalid");
             }
 
 
             
         }
-        //public IActionResult Login()
+        
+        //public IActionResult Forlogin(AdminLogin adminLogin)
 
         //{
+        //    using (BookAppDbContext dbContext = new BookAppDbContext())
+        //    {
+        //        dbContext.AdminLogins.Add(adminLogin);
+        //        dbContext.SaveChanges();
+
+        //    }
 
         //    return View();
-        //}
-
-        public IActionResult Forlogin(AdminLogin adminLogin)
-
-        {
-            using (BookAppDbContext dbContext = new BookAppDbContext())
-            {
-                dbContext.AdminLogins.Add(adminLogin);
-                dbContext.SaveChanges();
-
-            }
-
-            return View();
           
-        }
+        //}
 
 
 
@@ -113,6 +105,14 @@ namespace LibraryManagementSystem.Controllers
 
             return View(SelectedList);
 
+        }
+
+        public IActionResult ViewFeedback()
+        {
+            BookAppDbContext dbContext = new BookAppDbContext();
+            var feedbackList = dbContext.Feedbacks.ToList();
+
+            return View(feedbackList);
         }
     }
 

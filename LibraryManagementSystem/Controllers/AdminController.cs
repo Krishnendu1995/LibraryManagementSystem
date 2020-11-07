@@ -90,7 +90,9 @@ namespace LibraryManagementSystem.Controllers
             }
             using (BookAppDbContext dbContext = new BookAppDbContext())
             {
+                addbook.FileName = addbook.FileToUpload.FileName;
                 dbContext.AddBooks.Add(addbook);
+
                 //dbContext.AddBooks.Add(addbook.SelectedStatus=="0").;
                 /// dbContext.addbook.SelectedStatus == "0";
                 dbContext.SaveChanges();

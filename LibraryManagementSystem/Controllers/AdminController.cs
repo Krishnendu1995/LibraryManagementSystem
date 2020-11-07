@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using LibraryManagementSystem.Models;
@@ -72,9 +73,21 @@ namespace LibraryManagementSystem.Controllers
             
 
         }
-
-        public IActionResult ForAddBook(AddBook addbook)
+        [HttpPost]
+        public async Task<IActionResult> ForAddBookAsync(AddBook addbook)
         {
+            if (addbook.FileToUpload == null || addbook.FileToUpload.Length == 0)
+                return Content("file not selected");
+            //string path = (@"C:\Users\nithe\Source\Repos\KD-Company\KD Company\wwwroot\Car\");
+            var path = Path.Combine(
+                        Directory.GetCurrentDirectory(), "wwwroot/Image",
+                       addbook.FileToUpload.FileName);
+            Console.WriteLine(path);
+
+            using (var stream = new FileStream(path, FileMode.Create))
+            {
+                await addbook.FileToUpload.CopyToAsync(stream);
+            }
             using (BookAppDbContext dbContext = new BookAppDbContext())
             {
                 dbContext.AddBooks.Add(addbook);

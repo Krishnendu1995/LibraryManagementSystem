@@ -97,26 +97,19 @@ namespace LibraryManagementSystem.Controllers
         
         {
             BookAppDbContext dbContext = new BookAppDbContext();
-            //int BookNo = bookno;
-            //string BookName = bookname;
-            //string AuthorName = authorname;
-            //int Price = price;
-            //string Status = status;
-            //var SelectedList = dbContext.AddBooks.ToList().Where(x => x.SelectedStatus == "0");
+           
             var bookList = dbContext.AddBooks.ToList();
             if (!String.IsNullOrEmpty(searchString))
             {
 
                 var filterList = bookList.Where(x => x.BookName.ToLower().Contains(searchString.ToLower())).ToList();
+                //var SelectedList = dbContext.AddBooks.ToList().Where(x => x.SelectedStatus == "1");
                 return View(filterList);
             }
             else
             {
                 return View(bookList);
             }
-
-            //var user = SelectedList.Where(X => X.Email == email && X.Password == password).FirstOrDefault();
-
             
         }
 
@@ -128,6 +121,7 @@ namespace LibraryManagementSystem.Controllers
             {
 
                 var filterList = bookList.Where(x => x.BookName.ToLower().Contains(searchString.ToLower())).ToList();
+                
                 return View(filterList);
             }
             else
@@ -136,13 +130,26 @@ namespace LibraryManagementSystem.Controllers
             }
 
         }
+
         public IActionResult UpdateStatus(AddBook addBook)
         {
             BookAppDbContext dbContext = new BookAppDbContext();
-            
+            //var SelectedList = dbContext.AddBooks.ToList().Where(x => x.SelectedStatus == "0");
 
             return View();
         }
+
+
+        //public IActionResult UpdateSelection()
+        //{
+
+        //    BookAppDbContext dbContext = new BookAppDbContext();
+
+        //    var SelectedList = dbContext.AddBooks.ToList().Where(x => x.SelectedStatus == "0");
+
+        //    return View(SelectedList);
+
+        //}
 
         public IActionResult Feedback()
         {
@@ -162,6 +169,12 @@ namespace LibraryManagementSystem.Controllers
             return View();
 
         }
+
+        public IActionResult Logout()
+        {
+            return View("Index");
+        }
+
 
     }
 }

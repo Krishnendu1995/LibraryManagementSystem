@@ -131,10 +131,24 @@ namespace LibraryManagementSystem.Controllers
 
         }
 
-        public IActionResult UpdateStatus(AddBook addBook)
+        public IActionResult UpdateStatus(int id)
         {
+            //Console.WriteLine(addBook);
             BookAppDbContext dbContext = new BookAppDbContext();
-            //var SelectedList = dbContext.AddBooks.ToList().Where(x => x.SelectedStatus == "0");
+            //int id;
+            var SelectedList = dbContext.AddBooks.Where(x => x.Id == id).FirstOrDefault();
+            SelectedList.SelectedStatus = "1";
+            dbContext.AddBooks.Update(SelectedList);
+
+            //var Book = dbContext.AddBooks.Where(x => x.Id == id).FirstOrDefault();
+            ////foreach (var book in AddBooks)
+            ////{
+            ////    author.Books.Remove(book);
+            ////}
+            ////context.Authors.Remove(author);
+            //Book.SelectedStatus = "1";
+            //dbContext.AddBooks.Remove(Book);
+            dbContext.SaveChanges();
 
             return View();
         }

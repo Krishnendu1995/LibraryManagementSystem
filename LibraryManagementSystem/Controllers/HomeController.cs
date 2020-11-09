@@ -97,26 +97,10 @@ namespace LibraryManagementSystem.Controllers
         
         {
             BookAppDbContext dbContext = new BookAppDbContext();
-           
-            var bookList = dbContext.AddBooks.ToList();
-            if (!String.IsNullOrEmpty(searchString))
-            {
 
-                var filterList = bookList.Where(x => x.BookName.ToLower().Contains(searchString.ToLower())).ToList();
-                //var SelectedList = dbContext.AddBooks.ToList().Where(x => x.SelectedStatus == "1");
-                return View(filterList);
-            }
-            else
-            {
-                return View(bookList);
-            }
-            
-        }
+            var bookList = dbContext.AddBooks.ToList().Where(x => x.SelectedStatus == "0");
 
-        public IActionResult Search(String searchString)
-        {
-            BookAppDbContext dbContext = new BookAppDbContext();
-            var bookList = dbContext.AddBooks.ToList();
+
             if (!String.IsNullOrEmpty(searchString))
             {
 
@@ -126,8 +110,31 @@ namespace LibraryManagementSystem.Controllers
             }
             else
             {
+                
                 return View(bookList);
             }
+            //var SelectedList = dbContext.AddBooks.ToList().Where(x => x.SelectedStatus == "0");
+
+        }
+
+        public IActionResult Search(String searchString)
+        {
+            BookAppDbContext dbContext = new BookAppDbContext();
+            var bookList = dbContext.AddBooks.ToList().Where(x => x.SelectedStatus == "0");
+                        
+            if (!String.IsNullOrEmpty(searchString))
+            {
+
+                var filterList = bookList.Where(x => x.BookName.ToLower().Contains(searchString.ToLower())).ToList();
+                
+                return View(filterList);
+            }
+            else
+            {
+                
+                return View(bookList);
+            }
+            
 
         }
 

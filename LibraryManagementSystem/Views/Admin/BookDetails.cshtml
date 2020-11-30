@@ -5,12 +5,13 @@
 }
 
 <script>
-    function populate(bookname, price, status, filename) {
+    function populate(bookno,bookname, price, status, filename) {
         //alert(bookname);
         //alert(price);
-
+        document.getElementById("bookno").value = bookno;
         document.getElementById("n1").value = bookname;
         document.getElementById("n2").value = price;
+       
         document.getElementById("myImg").src = "/Image/"+filename;
         //x=document.Image.nameditem
         
@@ -60,7 +61,7 @@
             <td>@item.Status</td>
             <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" 
                         
-                        onclick="populate('@item.BookName', '@item.Price', '@item.Status', '@item.FileName')">
+                        onclick="populate('@item.BookNo','@item.BookName', '@item.Price', '@item.Status', '@item.FileName')">
                 Open modal
             </button></td>
 
@@ -85,17 +86,22 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-
-                    <input type="text"  id="n1">
+                    <input type="text" id="bookno" />
+                    <br />
+                    <br />
+                    <input type="text" id="n1">
                     <br>
                     <br>
                     <input type="text" id="n2">
+                    <br />
+                    <br />
+
 
                     <p id="status"></p>
 
                     <img id="myImg" width="100" height="100" @*src="~/Image/@item.FileName" alt="Alternate Text" width="100" height="100"*@>
 
-                    
+
                 </div>
                 
                 <!-- Modal footer -->
